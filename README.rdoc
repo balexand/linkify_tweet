@@ -3,6 +3,11 @@
 Adds links to the result returned by the Twitter {statuses/user_timeline}[http://dev.twitter.com/doc/get/statuses/user_timeline]
 API call. The +include_entities+ parameter must be set to +1+.
 
+== Usage
+
+Download {linkify_tweet.js}[https://raw.github.com/balexand/linkify_tweet/master/lib/linkify_tweet.js] and include it. Then call
+the +linkify_tweet+ function on a tweet returned by {statuses/user_timeline}[http://dev.twitter.com/doc/get/statuses/user_timeline].
+
 == Example using jQuery
 
 HTML:
