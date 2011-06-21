@@ -1,0 +1,43 @@
+= linkify_tweet
+
+Adds links to the result returned by the Twitter {statuses/user_timeline}[http://dev.twitter.com/doc/get/statuses/user_timeline]
+API call. The +include_entities+ parameter must be set to +1+.
+
+== Example using jQuery
+
+HTML:
+
+  <div class="twitter-bubble" data-twitter-user="legalnomads"></div>
+
+jQuery:
+
+  $(".twitter-bubble").each(function() {
+    var thisBubble = $(this);
+    $.getJSON("http://api.twitter.com/1/statuses/user_timeline.json?callback=?", {
+      count: 1,
+      include_entities: 1,
+      screen_name: thisBubble.data("twitter-user")
+    }, function(data) {
+      thisBubble.html(linkifyTweet(data[0]));
+    });
+  });
+
+== Compiling coffeescripts
+
+The easiest way is to use {Guard}[https://github.com/guard/guard]. Make sure you have Ruby and {Bundler}[http://gembundler.com/] installed, then install the dependencies by running
+
+  bundle install
+
+Start guard in this folder by running
+
+  guard
+
+Guard will then automatically recompile coffeescripts as they change.
+
+== Contributing
+
+The best way to contribute is to submit a {spec}[https://github.com/balexand/linkify_tweet/blob/master/spec/src/linkify_tweet_spec.coffee].
+
+== License
+
+linkify_tweet is released under the MIT license.
